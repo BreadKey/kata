@@ -14,7 +14,5 @@ class QuickSort {
         return listSmallerThanX + listOf(x) + listGreaterThanX
     }
 
-    private fun pickPivot(list: List<Int>): Int {
-        return list[Random.nextInt(list.size)]
-    }
+    private fun pickPivot(list: List<Int>): Int = list[Random.nextInt(list.size)]
 }
