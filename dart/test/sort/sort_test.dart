@@ -1,4 +1,4 @@
-import 'package:kata/sort/quick_sort.dart';
+import 'package:kata/sort/sort.dart';
 import 'package:test/test.dart';
 
 void main() {
