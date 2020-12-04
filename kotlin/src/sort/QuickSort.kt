@@ -8,10 +8,10 @@ class QuickSort {
 
         val x = pickPivot(list)
 
-        val listSmallerThenX = sort(list.filter { y -> y < x })
-        val listGreaterThenX = sort(list.filter { y -> y > x })
+        val listSmallerThanX = sort(list.filter { y -> y < x })
+        val listGreaterThanX = sort(list.filter { y -> y > x })
 
-        return listSmallerThenX + listOf(x) + listGreaterThenX
+        return listSmallerThanX + listOf(x) + listGreaterThanX
     }
 
     private fun pickPivot(list: List<Int>): Int {
