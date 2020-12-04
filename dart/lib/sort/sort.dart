@@ -28,14 +28,19 @@ extension Sort on List<int> {
   int _pickPivot(List<int> list) => list[Random().nextInt(list.length)];
 
   bool get isSorted {
-    for (var i = 0; i < length - 1; i++) {
-      if (this[i] > this[i + 1]) {
-        return false;
-      }
-    }
+    if (length < 2) return true;
 
-    return true;
+    final half = length ~/ 2;
+
+    final left = sublist(0, half);
+    final right = sublist(half, length);
+
+    if (left.median > median || right.median < median) return false;
+
+    return left.isSorted && right.isSorted;
   }
+
+  int get median => this[length ~/ 2];
 
   bool isSubsetOf(List<int> other) {
     if (other.length < length) return false;
@@ -49,8 +54,7 @@ extension Sort on List<int> {
       if (value == sortedList[currentIndex]) {
         currentIndex++;
         if (currentIndex == length) return true;
-      }
-      else if (value > sortedList[currentIndex]) {
+      } else if (value > sortedList[currentIndex]) {
         return false;
       }
     }

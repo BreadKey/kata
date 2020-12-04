@@ -5,19 +5,28 @@ import org.junit.jupiter.api.Test
 
 internal class SortTest {
     @Test
+    fun isSortedTest() {
+        val testListA = listOf(5, 19, 2, 4, 8)
+
+        assertEquals(false, testListA.isSorted())
+
+        val testListB = listOf(1, 3, 6, 9, 12, 32, 100)
+
+        assertEquals(true, testListB.isSorted())
+    }
+
+    @Test
     fun sortTest() {
         val testList = listOf(2, 1, 3)
 
-        assertEquals(false, testList.isSorted())
-        assertEquals(listOf(1, 2, 3), testList.quickSort())
+        assertEquals(true, testList.quickSort().isSorted())
     }
 
     @Test
     fun sortTest2() {
         val testList = listOf(3, 123941823, 13, 12394, 12381, 1, 48, 0)
 
-        assertEquals(false, testList.isSorted())
-        assertEquals(listOf(0, 1,3, 13, 48, 12381, 12394, 123941823), testList.quickSort())
+        assertEquals(true, testList.quickSort().isSorted())
     }
 
     @Test

@@ -28,13 +28,19 @@ fun List<Int>.quickSort(): List<Int> {
 private fun pickPivot(list: List<Int>): Int = list[Random.nextInt(list.size)]
 
 fun List<Int>.isSorted(): Boolean {
-    for (index in 0 until size - 1) {
-        if (get(index) > get(index + 1))
-            return false
-    }
+    if (size < 2) return true
 
-    return true
+    val half = size / 2
+
+    val left = subList(0, half)
+    val right = subList(half, size)
+
+    if (left.median() > median() || right.median() < median()) return false
+
+    return left.isSorted() && right.isSorted()
 }
+
+fun List<Int>.median() = this[size / 2]
 
 fun List<Int>.isSubsetOf(other: List<Int>): Boolean {
     if (other.size < size) return false
